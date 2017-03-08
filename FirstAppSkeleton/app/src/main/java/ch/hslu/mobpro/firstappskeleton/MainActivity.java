@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startQuestionActivity(View v) {
         Intent myInt2 = new Intent(this,QuestionActivity.class);
+        myInt2.putExtra("question","This is my question, do you question?");
         startActivityForResult(myInt2,MY_REQUEST_CODE);
     }
 

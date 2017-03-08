@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Uebung2</string>
+    <string name="main_view_local_Text">Diese Seite hat ein angepasstes Layout für Landscape Mode. Probiere es aus! Ausserdem kann Sie auch Schweizerdeutsch: Stelle die Sprache im Emulator auf Deutsch (Schweiz) um, und starte die App erneut.</string>
+</resources>

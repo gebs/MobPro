@@ -57,8 +57,10 @@ public class QuestionActivity extends Activity {
 	}
 
 	private void setQuestionText(String question) {
-		TextView textView = (TextView) findViewById(R.id.question_label);
-		textView.setText(question);
+		if (question != null && question != "") {
+			TextView textView = (TextView) findViewById(R.id.question_label);
+			textView.setText(question);
+		}
 	}
 	
 	private String getAnswerText() {
