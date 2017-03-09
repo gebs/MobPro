@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LinearLayoutActivity" />
-        <activity android:name=".RelativeLayoutActivity"></activity>
+        <activity android:name=".LayoutDemoActivity" />
+        <activity android:name=".ViewsDemoActivity"></activity>
     </application>
 
 </manifest>
