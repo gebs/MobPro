@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="2">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:weightSum="2">
 
     <LinearLayout
@@ -86,5 +90,24 @@
             android:text="Seite mit View Demos anzeigen"
             android:textAllCaps="false"
             android:layout_margin="5dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MainSectionHeader"
+            android:text="6. Zustandszwischenspeicherung" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Drücke den Knopf einige Male. Ein Toast mit dem internen Zählerstand wird angezeigt. Drehe das Device von Portrait un Landscape Mode. Der zähler wird zurückgesetzt! Das darf nicht sein" />
+        <Button
+            android:id="@+id/btnInternalCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Internen Zustand hochzählen"
+            android:textAllCaps="false"
+            android:layout_margin="5dp" />
     </LinearLayout>
 </LinearLayout>
+</ScrollView>

@@ -20,23 +20,28 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.datatype.Duration;
 
 public class MainActivity extends AppCompatActivity {
 
     RadioButton rbll;
     RadioButton rbrl;
     Button btnShowLayoutPage;
+    Button btnInternalCounter;
     Spinner spInformatikkurs;
-
+    int counter = 0;
+    final String KEY_COUNTER = "KEYCOUNTER";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        switch (getResources().getConfiguration().orientation){
+
+        switch (getResources().getConfiguration().orientation) {
             case Configuration.ORIENTATION_PORTRAIT:
                 setContentView(R.layout.activity_main);
                 break;
@@ -46,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        rbll = (RadioButton)this.findViewById(R.id.rbLinearlayout);
-        rbrl = (RadioButton)this.findViewById(R.id.rbRelativeLayout);
-        btnShowLayoutPage = (Button)this.findViewById(R.id.btnshowlayoutsites);
-        spInformatikkurs = (Spinner)this.findViewById(R.id.spInformatikKurs);
+        rbll = (RadioButton) this.findViewById(R.id.rbLinearlayout);
+        rbrl = (RadioButton) this.findViewById(R.id.rbRelativeLayout);
+        btnShowLayoutPage = (Button) this.findViewById(R.id.btnshowlayoutsites);
+        spInformatikkurs = (Spinner) this.findViewById(R.id.spInformatikKurs);
+        btnInternalCounter = (Button) this.findViewById(R.id.btnInternalCounter);
 
         rbll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,46 +75,68 @@ public class MainActivity extends AppCompatActivity {
                 openViewDemo();
             }
         });
+        btnInternalCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                internalCounter();
+            }
+        });
 
 
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,getResources().getStringArray(R.array.media_names));
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.media_names));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spInformatikkurs.setAdapter(adapter);
 
     }
-    private void openViewDemo(){
-        Intent in = new Intent(this,ViewsDemoActivity.class);
+
+    private void internalCounter() {
+        counter++;
+        Toast.makeText(this, "Zähler = " + counter, Toast.LENGTH_SHORT).show();
+    }
+
+    private void openViewDemo() {
+        Intent in = new Intent(this, ViewsDemoActivity.class);
         startActivity(in);
     }
-    public void openLayoutDemoActivity(boolean isLinearlayout){
-        Intent in = new Intent(this,LayoutDemoActivity.class);
-        if (isLinearlayout){
 
-            in.putExtra("Layout","LinearLayout");
+    public void openLayoutDemoActivity(boolean isLinearlayout) {
+        Intent in = new Intent(this, LayoutDemoActivity.class);
+        if (isLinearlayout) {
 
-        }else{
-            in.putExtra("Layout","RelativeLayout");
+            in.putExtra("Layout", "LinearLayout");
+
+        } else {
+            in.putExtra("Layout", "RelativeLayout");
         }
         startActivity(in);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+            outState.putInt(KEY_COUNTER,counter);
+        super.onSaveInstanceState(outState);
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstantState){
+        super.onRestoreInstanceState(savedInstantState);
+        counter = savedInstantState.getInt(KEY_COUNTER);
+    }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        MenuInflater mi =getMenuInflater();
-        mi.inflate(R.menu.main_menu,menu);
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.main_menu, menu);
         return false;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem){
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
         if (super.onOptionsItemSelected(menuItem)) {
             return true;
         }
 
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
 
         }
 

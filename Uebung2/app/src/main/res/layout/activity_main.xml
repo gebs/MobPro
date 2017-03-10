@@ -91,5 +91,23 @@
             android:id="@+id/spInformatikKurs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MainSectionHeader"
+            android:text="6. Zustandszwischenspeicherung" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Drücke den Knopf einige Male. Ein Toast mit dem internen Zählerstand wird angezeigt. Drehe das Device von Portrait un Landscape Mode. Der zähler wird zurückgesetzt! Das darf nicht sein" />
+        <Button
+            android:id="@+id/btnInternalCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Internen Zustand hochzählen"
+            android:textAllCaps="false"
+            android:layout_margin="5dp" />
     </LinearLayout>
 </ScrollView>
