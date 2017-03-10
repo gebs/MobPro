@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        /*Switch between Portrait and Landscape Layout*/
         switch (getResources().getConfiguration().orientation) {
             case Configuration.ORIENTATION_PORTRAIT:
                 setContentView(R.layout.activity_main);
@@ -50,13 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-
+        //Get Controls
         rbll = (RadioButton) this.findViewById(R.id.rbLinearlayout);
         rbrl = (RadioButton) this.findViewById(R.id.rbRelativeLayout);
         btnShowLayoutPage = (Button) this.findViewById(R.id.btnshowlayoutsites);
         spInformatikkurs = (Spinner) this.findViewById(R.id.spInformatikKurs);
         btnInternalCounter = (Button) this.findViewById(R.id.btnInternalCounter);
 
+
+        /*Set Events*/
         rbll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,11 +87,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        /*Init Adapter and fill Spinner*/
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.media_names));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spInformatikkurs.setAdapter(adapter);
 
     }
+    
 
     private void internalCounter() {
         counter++;
@@ -113,11 +119,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-            outState.putInt(KEY_COUNTER,counter);
+        outState.putInt(KEY_COUNTER, counter);
         super.onSaveInstanceState(outState);
     }
+
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstantState){
+    protected void onRestoreInstanceState(Bundle savedInstantState) {
         super.onRestoreInstanceState(savedInstantState);
         counter = savedInstantState.getInt(KEY_COUNTER);
     }
