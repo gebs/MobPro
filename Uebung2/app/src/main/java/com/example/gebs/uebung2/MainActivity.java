@@ -31,16 +31,11 @@ public class MainActivity extends AppCompatActivity {
     Button btnShowLayoutPage;
     Spinner spInformatikkurs;
 
-    List<String> InformatikKurse = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        InformatikKurse.add("Kurs 1");
-        InformatikKurse.add("Kurs 2");
-        InformatikKurse.add("Kurs 3");
-        //setContentView(R.layout.activity_main);
+        
         switch (getResources().getConfiguration().orientation){
             case Configuration.ORIENTATION_PORTRAIT:
                 setContentView(R.layout.activity_main);
@@ -77,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,InformatikKurse);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,getResources().getStringArray(R.array.media_names));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spInformatikkurs.setAdapter(adapter);
 
