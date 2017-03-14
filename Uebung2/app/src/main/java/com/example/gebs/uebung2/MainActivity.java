@@ -2,30 +2,17 @@ package com.example.gebs.uebung2;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.database.DataSetObserver;
-import android.provider.ContactsContract;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.menu.ExpandedMenuView;
-import android.support.v7.widget.MenuItemHoverListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.datatype.Duration;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,16 +28,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        /*Switch between Portrait and Landscape Layout*/
+        setContentView(R.layout.activity_main);
+        /*Switch between Portrait and Landscape Layout
         switch (getResources().getConfiguration().orientation) {
             case Configuration.ORIENTATION_PORTRAIT:
                 setContentView(R.layout.activity_main);
                 break;
             case Configuration.ORIENTATION_LANDSCAPE:
-                setContentView(R.layout.activity_main_land);
+
                 break;
-        }
+        }*/
 
         //Get Controls
         rbll = (RadioButton) this.findViewById(R.id.rbLinearlayout);
@@ -91,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.media_names));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spInformatikkurs.setAdapter(adapter);
-
     }
     
 
