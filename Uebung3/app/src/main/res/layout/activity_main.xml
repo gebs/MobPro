@@ -36,5 +36,54 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Tee Default-Prefs setzten"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MainSectionHeader"
+            android:text="Dateisystem" />
+        <CheckBox
+            android:id="@+id/ckbUseExternalStorage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Externer Speicher benutzen"/>
+        <TextView
+            android:id="@+id/lblExtStorage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:textColor="#999999"
+            android:text="External storage is mounted (writable)"/>
+        <TextView
+            android:id="@+id/lblFileContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="#bbbbbb"/>
+        <EditText
+            android:id="@+id/txtFileText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <Button
+                android:id="@+id/btnSaveTextFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Speichern"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/btnLoadTextFile"
+                android:layout_width="match_parent"
+                android:background="@android:color/transparent"
+                android:layout_height="wrap_content"
+                android:text="Laden"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
