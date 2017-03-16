@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             writeFileToInternalStorage(txtFileText.getText().toString());
         }
+        this.txtFileText.setText("");
     }
 
     private void ReadFile() {
