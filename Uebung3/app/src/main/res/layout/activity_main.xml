@@ -6,7 +6,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,5 +87,22 @@
                 android:layout_weight="1"/>
 
         </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MainSectionHeader"
+            android:text="SQLite" />
+        <Button
+            android:id="@+id/btnCreateNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Notiz erzeugen"/>
+        <Button
+            android:id="@+id/btnShowNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Notizen anzeigen"/>
     </LinearLayout>
 </ScrollView>

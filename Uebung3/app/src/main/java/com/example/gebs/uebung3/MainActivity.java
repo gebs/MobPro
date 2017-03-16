@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtFileText;
     private TextView lblFileContent;
     private CheckBox ckbUseExternalStorage;
+    private Button btnCreateNote;
+    private Button btnShowNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         txtFileText = (EditText) findViewById(R.id.txtFileText);
         lblFileContent = (TextView) findViewById(R.id.lblFileContent);
         ckbUseExternalStorage = (CheckBox) findViewById(R.id.ckbUseExternalStorage);
+        btnCreateNote = (Button)findViewById(R.id.btnCreateNote);
+        btnShowNotes = (Button)findViewById(R.id.btnShowNotes);
 
         btnEditPrefs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +97,18 @@ public class MainActivity extends AppCompatActivity {
                 ReadFile();
             }
         });
+        btnCreateNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateNote();
+            }
+        });
+        btnShowNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowNotes();
+            }
+        });
 
 
         if (isExternalStorageWritable())
@@ -103,7 +119,14 @@ public class MainActivity extends AppCompatActivity {
             lblextStorage.setText("External storage is not mounted");
 
     }
-
+    private void CreateNote(){
+        Intent i = new Intent(this,NoteActivity.class);
+        startActivity(i);
+    }
+    private void ShowNotes(){
+        Intent i = new Intent(this,NoteListActivity.class);
+        startActivity(i);
+    }
     private void SaveFile() {
 
         if (ckbUseExternalStorage.isChecked() && isExternalStorageWritable()) {
