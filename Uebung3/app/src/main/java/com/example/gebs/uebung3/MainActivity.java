@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
         txtFileText = (EditText) findViewById(R.id.txtFileText);
         lblFileContent = (TextView) findViewById(R.id.lblFileContent);
         ckbUseExternalStorage = (CheckBox) findViewById(R.id.ckbUseExternalStorage);
-        btnCreateNote = (Button)findViewById(R.id.btnCreateNote);
-        btnShowNotes = (Button)findViewById(R.id.btnShowNotes);
+        btnCreateNote = (Button) findViewById(R.id.btnCreateNote);
+        btnShowNotes = (Button) findViewById(R.id.btnShowNotes);
 
         btnEditPrefs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,14 +119,17 @@ public class MainActivity extends AppCompatActivity {
             lblextStorage.setText("External storage is not mounted");
 
     }
-    private void CreateNote(){
-        Intent i = new Intent(this,NoteActivity.class);
+
+    private void CreateNote() {
+        Intent i = new Intent(this, NoteActivity.class);
         startActivity(i);
     }
-    private void ShowNotes(){
-        Intent i = new Intent(this,NoteListActivity.class);
+
+    private void ShowNotes() {
+        Intent i = new Intent(this, NoteListActivity.class);
         startActivity(i);
     }
+
     private void SaveFile() {
 
         if (ckbUseExternalStorage.isChecked() && isExternalStorageWritable()) {
@@ -204,9 +207,9 @@ public class MainActivity extends AppCompatActivity {
 
         lblPrefs.setText(myText);
     }
-    private String getSweetenerString(SharedPreferences pref){
-       int index =  Arrays.asList(getResources().getStringArray(R.array.teaSweetenerValues)).indexOf(pref.getString("teaSweetener1", "natural"));
-        return getResources().getStringArray(R.array.teaSweetener)[index];
+
+    private String getSweetenerString(SharedPreferences pref) {
+        return getResources().getStringArray(R.array.teaSweetener)[Arrays.asList(getResources().getStringArray(R.array.teaSweetenerValues)).indexOf(pref.getString("teaSweetener1", "natural"))];
     }
 
     private void setDefaultPrefs() {
