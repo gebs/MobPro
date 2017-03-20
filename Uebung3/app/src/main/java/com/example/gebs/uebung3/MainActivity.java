@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         String myText = "Ich trinke am liebsten " + pref2.getString("teaPreffered", "Hopfentee");
 
         if (pref2.getBoolean("teaWithSugar", true)) {
-            myText += " mit " + pref2.getString("teaSweetener1", "Rohrzucker");
+            myText += " mit " + getSweetenerString(pref2);
             myText += " gesüsst";
         } else {
             myText += " ungesüsst";
@@ -204,11 +204,15 @@ public class MainActivity extends AppCompatActivity {
 
         lblPrefs.setText(myText);
     }
+    private String getSweetenerString(SharedPreferences pref){
+       int index =  Arrays.asList(getResources().getStringArray(R.array.teaSweetenerValues)).indexOf(pref.getString("teaSweetener1", "natural"));
+        return getResources().getStringArray(R.array.teaSweetener)[index];
+    }
 
     private void setDefaultPrefs() {
         final SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
         editor.putString("teaPreffered", "Hopfentee");
-        editor.putString("teaSweetener1", "Rohrzucker");
+        editor.putString("teaSweetener1", "natural");
         editor.putBoolean("teaWithSugar", true);
         editor.apply();
 

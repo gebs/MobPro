@@ -11,7 +11,7 @@
         <ListPreference
             android:dependency="teaWithSugar"
             android:entries="@array/teaSweetener"
-            android:entryValues="@array/teaSweetener"
+            android:entryValues="@array/teaSweetenerValues"
             android:key="teaSweetener1"
             android:persistent="true"
             android:shouldDisableView="true"
