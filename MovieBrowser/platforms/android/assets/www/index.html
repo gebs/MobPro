@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src * data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-1.5.0.mobile.min.css">
+    <link rel="stylesheet" type="text/css" href="css/movies.css">
+    <title>Hello World</title>
+</head>
+
+<body>
+
+    <section data-role="page" id="page-main" data-title="My Movies">
+        <header data-role="header">
+            <h1><b>My Movies</b></h1>
+        </header>
+        <article class="ui-content">
+            <div data-role="content">
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#page-favorites">Lieblingsfilme</a></li>
+                    <li><a href="#page-search">Filmsuche</a></li>
+                </ul>
+            </div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+
+            <h6>&copy; 2017 by gebs Inc.</h6>
+
+        </footer>
+    </section>
+    <section data-role="page" id="page-favorites" data-title="My Movies">
+        <header data-role="header">
+            <h1><b>Lieblingsfilme</b></h1>
+        </header>
+        <article class="ui-content">
+            <div data-role="content">
+                <ul data-role="listview" data-inset="true" id=favList>
+                    <li><a href="#page-movie">Film 1</a></li>
+                    <li><a href="#page-movie">Film 2</a></li>
+                    <li><a href="#page-movie">Film 3</a></li>
+                </ul>
+            </div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+
+            <h6>&copy; 2017 by gebs Inc.</h6>
+
+        </footer>
+    </section>
+    <section data-role="page" id="page-search" data-title="My Movies">
+        <header data-role="header">
+            <h1><b>Filmsuche</b></h1>
+        </header>
+        <article class="ui-content">
+            <div data-role="content">
+                <div class="myformdiv">
+                    <label for="txtTitle">What Movie are you looking for?</label>
+                    <input type="text" id="txtSearch" value="">
+                </div>
+                <div class="myformdiv">
+                   <button class="ui-btn ui-icon-search ui-btn-icon-left" id="btnSearch">Search</button>
+                </div>
+            </div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+
+            <h6>&copy; 2017 by gebs Inc.</h6>
+
+        </footer>
+    </section>
+    <section data-role="page" id="page-movie" data-title="My Movies">
+        <header data-role="header">
+            <h1><b>Deadpool</b></h1>
+        </header>
+        <article class="ui-content">
+            <div data-role="content">
+                <div class="myformdiv">
+                    <label for="txtTitle">Title</label>
+                    <input type="text" id="txtTitle" value="Deadpool">
+                </div>
+                <div class="myformdiv">
+                    <label for="txtYear">Year</label>
+                    <input type="text" id="txtYear" value="2017" >
+                </div>
+                <div class="myformdiv">
+                    <label for="txtActors">Actors</label>
+                    <textarea id="txtActors" asdf></textarea>
+                </div>
+                <div class="myformdiv">
+                    <label for="txtPlot">Plot</label>
+                    <textarea id="txtPlot" >asdf</textarea>
+                </div>
+                <div class="myformdiv">
+                    <label for="txtRating">Rating</label>
+                    <input type="text" id="txtRating" value="9.1">
+                </div>
+                <div class="myformdiv">
+                    <label for="imgPoster">Poster</label>
+                    <img id="imgPoster" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjQyODg5Njc4N15BMl5BanBnXkFtZTgwMzExMjE3NzE@._V1_SY1000_SX686_AL_.jpg" alt="">
+                </div>
+            </div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+
+            <h6>&copy; 2017 by gebs Inc.</h6>
+
+        </footer>
+    </section>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
+    <script type="text/javascript" src="js/model.js"></script>
+    <script type="text/javascript" src="js/movies.js"></script>
+</body>
+
+</html>
